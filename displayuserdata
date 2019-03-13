@@ -1,0 +1,15 @@
+import React, { Component } from 'react';
+
+export class DisplayUserData extends Component{
+    constructor(){
+        super()
+            this.state={data:[{name:'Arjun Sidana',age:'25'},{name:'rajat',age:'24'},{name:'Mohit',age:26},{name:'Rohit',age:27}]}
+        }
+        
+    render(){
+        console.log(this.props)
+        return(<div><div>{this.props.location.state.name}</div>
+        <div>{this.props.location.state.age}</div>
+        </div>)
+    }
+}
