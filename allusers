@@ -1,0 +1,21 @@
+import React, { Component } from 'react';
+import {DisplayData} from './displayData'
+export class AllUsers extends Component{
+    constructor(){
+    super()
+        this.state={data:[{name:'Arjun Sidana',age:'25'},{name:'rajat',age:'24'},{name:'Mohit',age:26},{name:'Rohit',age:27}]}
+    }
+    renderData(){
+        return this.state.data.map((item,idx)=><DisplayData getData={this.getData} item={item} key={idx}/>)
+    }
+    getData=(value)=>{
+        console.log('value.name :', value);
+        this.props.history.push({
+            pathname:"/userdetail/"+ value.name,
+            state:value
+        })
+    }
+    render(){
+    return(<div><table><tbody>{this.renderData()}</tbody></table></div>)
+    }
+}
